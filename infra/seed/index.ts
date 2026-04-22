@@ -9,7 +9,10 @@
  */
 import bcrypt from "bcrypt";
 import { randomBytes, createHash } from "node:crypto";
-import { PrismaClient } from "@prisma/client";
+// `@prisma/client` is CJS without real named ESM exports; Node 22+ ESM
+// requires importing the default and destructuring.
+import prismaPkg from "@prisma/client";
+const { PrismaClient } = prismaPkg;
 
 // `api/_fixtures.ts` sits under the root package (no `type: module`), so tsx
 // transpiles it as CJS. A static ESM named import fails to link. Going through

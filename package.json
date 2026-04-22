@@ -1,0 +1,63 @@
+{
+  "name": "the-brain",
+  "version": "0.2.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:coverage": "pnpm --filter @brain/api test:coverage",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint .",
+    "seed": "pnpm --filter @brain/api seed",
+    "migrate": "pnpm --filter @brain/api prisma migrate deploy",
+    "prepare": "husky || true"
+  },
+  "dependencies": {
+    "@vercel/node": "^5.0.0",
+    "@prisma/client": "^5.14.0",
+    "bcrypt": "^6.0.0",
+    "prisma": "^5.14.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "undici@<6.24.0": ">=6.24.0",
+      "tar@<7.5.11": ">=7.5.11",
+      "fast-jwt@<6.2.0": ">=6.2.0"
+    },
+    "auditConfig": {
+      "ignoreCves": [
+        "CVE-2023-30533",
+        "CVE-2024-22363",
+        "CVE-2026-25223",
+        "CVE-2026-26996",
+        "CVE-2026-27903",
+        "CVE-2026-27904"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^7.1.0",
+    "husky": "^9.1.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^1.4.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}

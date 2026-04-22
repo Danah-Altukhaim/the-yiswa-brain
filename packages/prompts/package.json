@@ -1,0 +1,15 @@
+{
+  "name": "@brain/prompts",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": { "typecheck": "tsc --noEmit" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "@brain/shared": "workspace:*",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": { "typescript": "^5.4.0" }
+}

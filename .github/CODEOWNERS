@@ -1,0 +1,21 @@
+# Each line is a file pattern followed by one or more owners.
+# Orders matter: the LAST matching pattern wins.
+# Replace the TODO placeholders with real GitHub handles before merging.
+
+# Default owner for everything in the repo.
+*                                   @TODO-team-lead
+
+# Security-sensitive areas: require a second reviewer from the security group.
+/apps/api/src/routes/auth.ts        @TODO-team-lead @TODO-security
+/apps/api/src/plugins/auth.ts       @TODO-team-lead @TODO-security
+/apps/api/src/plugins/api-key.ts    @TODO-team-lead @TODO-security
+/apps/api/src/plugins/tenant-*.ts   @TODO-team-lead @TODO-security
+/infra/migrations/                  @TODO-team-lead @TODO-security
+/apps/api/src/lib/env.ts            @TODO-team-lead @TODO-security
+/apps/api/src/lib/sentry.ts         @TODO-team-lead @TODO-security
+/Dockerfile                         @TODO-team-lead @TODO-security
+/.github/workflows/                 @TODO-team-lead @TODO-security
+
+# Ops-owned files.
+/docs/runbooks/                     @TODO-ops
+/.github/dependabot.yml             @TODO-ops

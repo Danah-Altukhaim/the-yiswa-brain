@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.30.0",
-    "@aws-sdk/client-s3": "^3.600.0",
+    "@aws-sdk/client-s3": "^3.1034.0",
     "@aws-sdk/s3-request-presigner": "^3.600.0",
     "@react-pdf/renderer": "^3.4.0",
     "nodemailer": "^7.0.11",

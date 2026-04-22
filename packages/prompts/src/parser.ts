@@ -184,7 +184,7 @@ export async function parseUtterance(input: ParserInput): Promise<ParserResult> 
   // Cache-heavy blocks ordered static → dynamic:
   // 1) system instructions (cached)
   // 2) module schemas (cached)
-  // 3) brand glossary + FK tone (cached)
+  // 3) brand glossary + tone (cached)
   // 4) recent entries + session summary (dynamic)
   const systemBlocks = [
     {
@@ -199,7 +199,7 @@ export async function parseUtterance(input: ParserInput): Promise<ParserResult> 
     },
     {
       type: "text",
-      text: "BRAND GLOSSARY (EN→AR): Future Kid → فيوتشر كيد; branch → فرع; promotion → عرض; ride → لعبة; bank card → بطاقة بنكية. TONE: warm, concise, family-friendly. Kuwait market context.",
+      text: "BRAND GLOSSARY (EN→AR): Yiswa → يسوا; Noor → نور; reverse auction → مزاد عكسي; Buy Now → اشتري الآن; Set Price Target → حدد سعرك; Group Deal → عرض جماعي; order → طلب; delivery → توصيل; refund → استرجاع; return → إرجاع; KNET → كي نت; Apple Pay → آبل باي. TONE: warm, concise, clear. Kuwaiti dialect preferred for Arabic. Kuwait market context.",
       cache_control: { type: "ephemeral" },
     },
   ] as unknown as Anthropic.Messages.TextBlockParam[];

@@ -28,12 +28,12 @@ export async function translateField(args: {
       system: [
         {
           type: "text",
-          text: 'You translate Future Kid marketing copy between English and Arabic. Preserve brand voice: warm, concise, family-friendly. Use the approved glossary. Return ONLY the translation and a confidence score 0.0-1.0 as JSON: {"text":"...","confidence":0.0}.',
+          text: 'You translate Yiswa customer service copy between English and Arabic. Preserve brand voice: warm, concise, clear. Kuwaiti dialect preferred for Arabic. Use the approved glossary. Return ONLY the translation and a confidence score 0.0-1.0 as JSON: {"text":"...","confidence":0.0}.',
           cache_control: { type: "ephemeral" },
         },
         {
           type: "text",
-          text: "GLOSSARY: Future Kid=فيوتشر كيد, branch=فرع, promotion=عرض, ride=لعبة, bank card=بطاقة بنكية",
+          text: "GLOSSARY: Yiswa=يسوا, Noor=نور, reverse auction=مزاد عكسي, Buy Now=اشتري الآن, Set Price Target=حدد سعرك, Group Deal=عرض جماعي, order=طلب, delivery=توصيل, refund=استرجاع, return=إرجاع, bank card=بطاقة بنكية, KNET=كي نت, Apple Pay=آبل باي",
           cache_control: { type: "ephemeral" },
         },
       ] as any,

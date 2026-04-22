@@ -1,13 +1,13 @@
 // Parses and serializes the `trigger` blob used by escalation rule entries.
-// The blob has two known shapes, both produced out in the wild:
-//   1. Importer output (scripts/import-fk-drive.ts): newline-separated with
-//      explicit prefixes (Keywords:, To:, SLA:, Script:).
+// The blob has two known shapes:
+//   1. Structured: newline-separated with explicit prefixes
+//      (Keywords:, To:, SLA:, Script:).
 //   2. Seed/hand-entered data: one-line prose,
 //      "<Category> - <keywords>. Escalate to <target>. SLA: <value>. Auto: <script>."
 //      Entries without escalation use "Handled by <x>. No escalation needed."
 // parseTrigger tries format 1 first and falls back to format 2.
-// serializeTrigger always writes format 1 (the importer's format) so saved
-// data is easier to round-trip going forward.
+// serializeTrigger always writes format 1 so saved data is easier to
+// round-trip going forward.
 
 export type ParsedEscalationRule = {
   category: string;

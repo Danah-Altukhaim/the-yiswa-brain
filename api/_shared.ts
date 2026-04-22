@@ -18,7 +18,7 @@ export type VercelRes = {
   end(body?: string): void;
 };
 
-export const TENANT = { id: "demo-tenant", slug: "future-kid", name: "Future Kid" };
+export const TENANT = { id: "demo-tenant", slug: "yiswa", name: "Yiswa" };
 export const USER = {
   id: "demo-user",
   email: "demo@example.com",

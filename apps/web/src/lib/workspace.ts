@@ -26,7 +26,7 @@ export function prefixOf(slug: string): string | null {
 
 export function getWorkspaces(modules: Module[]): WorkspaceOption[] {
   // A prefix is only treated as a workspace when at least two modules share it.
-  // Prevents false positives like Future Kid's `escalation_rules` / `policy_matrix`
+  // Prevents false positives like Yiswa's `escalation_rules` / `policy_matrix`
   // (distinct one-off slugs) from hiding the other modules behind a filter.
   const counts = new Map<string, number>();
   for (const m of modules) {

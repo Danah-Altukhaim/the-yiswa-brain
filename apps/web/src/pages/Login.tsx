@@ -10,7 +10,7 @@ export function Login() {
   const tenantBranding = useTenant((s) => s.branding);
   const requestedSlug = useTenant((s) => s.requestedSlug);
 
-  const [tenantSlug, setTenantSlug] = useState("future-kid");
+  const [tenantSlug, setTenantSlug] = useState("yiswa");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState<string | null>(null);
@@ -73,10 +73,10 @@ export function Login() {
   }
 
   const showCompanyInput = !brandedTenant;
-  const demoSlug = brandedTenant?.slug ?? "future-kid";
+  const demoSlug = brandedTenant?.slug ?? "yiswa";
   const demoLabel = brandedTenant
     ? `Try the ${brandedTenant.name} demo`
-    : "Enter as Sarah (Future Kid demo)";
+    : "Enter as Ayman (Yiswa demo)";
   const title = brandedTenant?.name ?? "The Brain";
   const tagline = brandedTenant
     ? `Sign in to ${brandedTenant.name}`

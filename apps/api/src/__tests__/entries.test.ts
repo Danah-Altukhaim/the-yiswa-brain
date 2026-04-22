@@ -11,14 +11,14 @@
  *  - rollback restores the prior snapshot and bumps version counter
  *  - unknown module slug returns 404
  *
- * Seed dependency: `pnpm seed` must have run; uses the `future-kid` tenant,
+ * Seed dependency: `pnpm seed` must have run; uses the `yiswa` tenant,
  * `demo@example.com` / `password1`, and the `faqs` module.
  */
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { FastifyInstance } from "fastify";
 import { buildApp } from "../server.js";
 
-const TENANT = "future-kid";
+const TENANT = "yiswa";
 const EMAIL = "demo@example.com";
 const PASSWORD = "password1";
 const MODULE = "faqs";
@@ -72,11 +72,11 @@ describe("entries routes", () => {
   it("creates an entry and round-trips on read", async () => {
     const payload = {
       data: {
-        question_en: "What are the Future Kid opening hours?",
-        question_ar: "ما هي ساعات عمل فيوتشر كيد؟",
-        answer_en: "We are open 9 to 9 daily.",
-        answer_ar: "نعمل من 9 إلى 9 يوميا.",
-        category: "hours",
+        question_en: "What are Yiswa's customer support hours?",
+        question_ar: "ما هي ساعات خدمة العملاء في يسوا؟",
+        answer_en: "We are available daily from 9 AM to 9 PM.",
+        answer_ar: "نحن متاحون يوميا من 9 صباحا إلى 9 مساء.",
+        category: "support",
       },
     };
     const created = await app.inject({
@@ -97,7 +97,7 @@ describe("entries routes", () => {
       headers: { authorization: `Bearer ${token}` },
     });
     expect(read.statusCode).toBe(200);
-    expect(read.json().data.data.category).toBe("hours");
+    expect(read.json().data.data.category).toBe("support");
   });
 
   it("lists entries and includes the newly created one", async () => {
@@ -128,11 +128,11 @@ describe("entries routes", () => {
       headers: { authorization: `Bearer ${token}` },
       payload: {
         data: {
-          question_en: "What are the opening hours?",
-          question_ar: "ما هي ساعات العمل؟",
+          question_en: "What are the support hours?",
+          question_ar: "ما هي ساعات الدعم؟",
           answer_en: "9 to 9 daily.",
           answer_ar: "من 9 إلى 9 يوميا.",
-          category: "hours",
+          category: "support",
         },
         changeSummary: "shortened copy",
       },
@@ -164,7 +164,7 @@ describe("entries routes", () => {
       url: `/api/v1/entries/${MODULE}/${createdId}`,
       headers: { authorization: `Bearer ${token}` },
     });
-    expect(read.json().data.data.answer_en).toBe("We are open 9 to 9 daily.");
+    expect(read.json().data.data.answer_en).toBe("We are available daily from 9 AM to 9 PM.");
 
     const versions = await app.inject({
       method: "GET",

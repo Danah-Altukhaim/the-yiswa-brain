@@ -204,7 +204,7 @@ const routes: FastifyPluginAsync = async (app) => {
     });
     const result = await simulateBot({
       botSystemPrompt:
-        "You are Jasoomy, the Future Kid customer bot. Answer using only the provided KB. Be warm and concise.",
+        "You are Noor, the Yiswa customer service bot. Answer using only the provided KB. Be warm and concise. Yiswa is a reverse-auction e-commerce app in Kuwait.",
       kbSnapshot: snapshot,
       userQuestion: body.question,
       locale: body.locale,
